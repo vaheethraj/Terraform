@@ -1,14 +1,22 @@
+variable "ami" {
+  type = map(string)
+  default = {
+    "projectA" = "ami-084568db4383264d4"
+    "projectB" = "ami-04f167a56786e4b09"
+  }
+}
+
 variable "region" {
-  default = ""
-  type = list(string)
-  description = "Test"
+  default = {
+    "projectA" = "us-east-1"
+    "projectB" = "us-east-2"
+  }
+  type = map(string)
 }
 
 variable "instance_type" {
-  default = {
-    "instance_type" = "t2.micro"
-    "instance_types" = "t3.micro"
-  }
-  type = map(string)
-  description = "Instance Type"
+  default = "t2.micro"
+  type = string
 }
+
+
